@@ -1,5 +1,5 @@
 public import PDF_Standard
-public import Render_Primitives
+public import Render
 
 extension Render.Conditional: PDF.View where First: PDF.View, Second: PDF.View {
     public typealias Content = Never

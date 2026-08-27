@@ -1,5 +1,5 @@
 public import PDF_Standard
-public import Render_Primitives
+public import Render
 
 extension Render._Tuple: PDF.View where repeat each Content: PDF.View {
     public typealias Content = Never

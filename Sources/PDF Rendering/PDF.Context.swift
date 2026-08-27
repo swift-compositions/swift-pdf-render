@@ -1,7 +1,7 @@
-import Byte_Primitives
+import Byte
 public import Copy_on_Write
-import Geometry_Primitives
-import Layout_Primitives
+import Geometry
+import Layout
 public import PDF_Standard
 
 extension PDF {

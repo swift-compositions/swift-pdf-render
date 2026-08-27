@@ -1,6 +1,6 @@
-import Layout_Primitives
+import Layout
 import PDF_Rendering_Test_Support
-import Test_Snapshot_Primitives
+import Test_Snapshot
 import Testing
 import Tests_Inline_Snapshot
 

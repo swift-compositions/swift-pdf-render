@@ -1,4 +1,4 @@
-import Binary_Serializable_Primitives
+import Binary_Serializable
 import PDF_Rendering_Test_Support
 import PDF_Standard
 import Testing

@@ -1,5 +1,5 @@
 import ISO_32000
-public import Layout_Primitives
+public import Layout
 public import PDF_Standard
 
 extension ISO_32000.Table {

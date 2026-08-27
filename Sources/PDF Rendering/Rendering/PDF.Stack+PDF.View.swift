@@ -1,8 +1,8 @@
-public import Axis_Primitives
-import Dimension_Primitives
-import Geometry_Primitives
+public import Axis
+import Dimension
+import Geometry
 import ISO_32000_Shared
-public import Layout_Primitives
+public import Layout
 public import PDF_Standard
 
 public typealias LayoutRaw = Layout

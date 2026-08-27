@@ -1,6 +1,6 @@
-import Layout_Primitives
+import Layout
 public import PDF_Standard
-public import Render_Primitives
+public import Render
 
 extension PDF.Context {
 

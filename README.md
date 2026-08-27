@@ -47,7 +47,7 @@ let document = PDF.Document {
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-foundations/swift-pdf-render.git", branch: "main")
+    .package(url: "https://github.com/swift-compositions/swift-pdf-render.git", branch: "main")
 ]
 ```
 

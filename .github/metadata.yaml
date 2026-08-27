@@ -2,7 +2,7 @@
 # Triaged by AI-assisted bulk pass (2026-04-29).
 description: "Declarative, result-builder PDF.View hierarchies rendered to ISO 32000 PDF documents for Swift."
 topics:
-  - foundations
+  - compositions
   - pdf
 homepage: "https://swift-institute.org"
 readme:

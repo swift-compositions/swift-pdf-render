@@ -16,7 +16,7 @@ extension Target.Dependency {
         .product(name: "PDF Standard", package: "swift-pdf-standard")
     }
     static var renderingPrimitives: Self {
-        .product(name: "Render Primitives", package: "swift-render-primitives")
+        .product(name: "Render", package: "swift-render")
     }
     static var copyOnWrite: Self {
         .product(name: "Copy on Write", package: "swift-copy-on-write")
@@ -25,19 +25,19 @@ extension Target.Dependency {
         .product(name: "ASCII", package: "swift-ascii")
     }
     static var layoutPrimitives: Self {
-        .product(name: "Layout Primitives", package: "swift-layout-primitives")
+        .product(name: "Layout", package: "swift-layout")
     }
     static var propertyPrimitives: Self {
-        .product(name: "Property Primitives", package: "swift-property-primitives")
+        .product(name: "Property", package: "swift-property")
     }
     static var pairPrimitives: Self {
-        .product(name: "Pair Primitives", package: "swift-pair-primitives")
+        .product(name: "Pair", package: "swift-pair")
     }
     static var ownershipMutablePrimitives: Self {
-        .product(name: "Ownership Mutable Primitives", package: "swift-ownership-primitives")
+        .product(name: "Ownership Mutable", package: "swift-ownership")
     }
     static var bytePrimitives: Self {
-        .product(name: "Byte Primitives", package: "swift-byte-primitives")
+        .product(name: "Byte", package: "swift-byte")
     }
 }
 
@@ -57,40 +57,40 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/swift-standards/swift-pdf-standard.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-primitives/swift-render-primitives.git",
+            url: "https://github.com/swift-molecules/swift-render.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-foundations/swift-copy-on-write.git",
+            url: "https://github.com/swift-compositions/swift-copy-on-write.git",
             branch: "main"
         ),
-        .package(url: "https://github.com/swift-foundations/swift-ascii.git", branch: "main"),
+        .package(url: "https://github.com/swift-compositions/swift-ascii.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-primitives/swift-layout-primitives.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-primitives/swift-property-primitives.git",
+            url: "https://github.com/swift-molecules/swift-layout.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-axis-primitives.git",
+            url: "https://github.com/swift-molecules/swift-property.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-dimension-primitives.git",
+            url: "https://github.com/swift-molecules/swift-axis.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-pair-primitives.git",
+            url: "https://github.com/swift-molecules/swift-dimension.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-ownership-primitives.git",
+            url: "https://github.com/swift-molecules/swift-pair.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-byte-primitives.git",
+            url: "https://github.com/swift-molecules/swift-ownership.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-byte.git",
             branch: "main"
         ),
     ],
@@ -103,7 +103,7 @@ let package = Package(
                 .copyOnWrite,
                 .ascii,
                 .layoutPrimitives,
-                .product(name: "Axis Primitives", package: "swift-axis-primitives"),
+                .product(name: "Axis", package: "swift-axis"),
                 .propertyPrimitives,
                 .pairPrimitives,
                 .ownershipMutablePrimitives,
@@ -115,8 +115,8 @@ let package = Package(
             dependencies: [
                 .pdfRendering,
                 .product(
-                    name: "Dimension Primitives Test Support",
-                    package: "swift-dimension-primitives"
+                    name: "Dimension Test Support",
+                    package: "swift-dimension"
                 ),
             ],
             path: "Tests/Support"

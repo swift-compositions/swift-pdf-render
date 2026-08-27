@@ -1,5 +1,5 @@
-import Geometry_Primitives
-public import Layout_Primitives
+import Geometry
+public import Layout
 public import PDF_Standard
 
 extension PDF.Context.Style {

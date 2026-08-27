@@ -1,7 +1,7 @@
-import Byte_Primitives
-import Geometry_Primitives
+import Byte
+import Geometry
 import PDF_Standard
-import Property_Primitives
+import Property
 
 extension PDF.Context {
 

@@ -1,5 +1,5 @@
-import Byte_Primitives
-import Layout_Primitives
+import Byte
+import Layout
 import PDF_Standard
 
 extension ISO_32000.Text: PDF.View {

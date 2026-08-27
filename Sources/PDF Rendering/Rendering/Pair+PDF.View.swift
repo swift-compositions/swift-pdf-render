@@ -1,6 +1,6 @@
-public import Layout_Primitives
+public import Layout
 public import PDF_Standard
-public import Pair_Primitives
+public import Pair
 
 extension Pair: PDF.View where First: PDF.View, Second: PDF.View {
     public typealias Content = Never

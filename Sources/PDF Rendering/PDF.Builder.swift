@@ -1,5 +1,5 @@
 public import PDF_Standard
-public import Render_Primitives
+public import Render
 
 public typealias BuilderRaw = Render.Builder
 

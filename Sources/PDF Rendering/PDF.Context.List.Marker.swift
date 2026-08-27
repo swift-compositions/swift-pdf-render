@@ -1,5 +1,5 @@
-public import Byte_Primitives
-public import Geometry_Primitives
+public import Byte
+public import Geometry
 public import PDF_Standard
 
 extension PDF.Context.List {

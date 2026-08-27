@@ -1,5 +1,5 @@
 import ASCII
-public import Byte_Primitives
+public import Byte
 public import PDF_Standard
 
 extension PDF.Context.Text {

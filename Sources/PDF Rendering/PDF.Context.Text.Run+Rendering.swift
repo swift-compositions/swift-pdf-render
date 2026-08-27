@@ -1,6 +1,6 @@
 import ASCII
-import Byte_Primitives
-import Layout_Primitives
+import Byte
+import Layout
 public import PDF_Standard
 
 extension PDF.Context.Text.Run {
