@@ -34,7 +34,7 @@ extension Target.Dependency {
         .product(name: "Pair", package: "swift-pair")
     }
     static var ownershipMutablePrimitives: Self {
-        .product(name: "Ownership Mutable", package: "swift-ownership")
+        .product(name: "Ownership", package: "swift-ownership")
     }
     static var bytePrimitives: Self {
         .product(name: "Byte", package: "swift-byte")
