@@ -1,7 +1,7 @@
 public import PDF_Standard
-public import Render
+public import Renderer
 
-extension Render.Conditional: PDF.View where First: PDF.View, Second: PDF.View {
+extension Renderer.Document.Conditional: PDF.View where First: PDF.View, Second: PDF.View {
     public typealias Content = Never
 
     public var body: Never { fatalError("Conditional uses direct rendering") }

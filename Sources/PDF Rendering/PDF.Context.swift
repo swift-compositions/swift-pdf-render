@@ -1,5 +1,5 @@
 import Byte
-public import Copy_on_Write
+public import Copy_on_Write_Macro
 import Geometry
 import Layout
 public import PDF_Standard
@@ -114,11 +114,11 @@ extension PDF.Context {
         mediaBox: ISO_32000.UserSpace.Rectangle,
         margins: PDF.UserSpace.Insets
     ) {
-        let contentWidth = mediaBox.width - margins.horizontal
-        let contentHeight = mediaBox.height - margins.vertical
+        let contentWidth = mediaBox.width - PDF.UserSpace.Width(_unchecked: margins.horizontal)
+        let contentHeight = mediaBox.height - PDF.UserSpace.Height(_unchecked: margins.vertical)
         self.init(
-            x: .zero + margins.leading,
-            y: .zero + margins.top,
+            x: .zero + PDF.UserSpace.Width(_unchecked: margins.leading),
+            y: .zero + PDF.UserSpace.Height(_unchecked: margins.top),
             availableWidth: contentWidth,
             availableHeight: contentHeight,
             mediaBox: mediaBox
@@ -130,12 +130,12 @@ extension PDF.Context {
     public init(
         _ configuration: PDF.Configuration
     ) {
-        let contentWidth = configuration.mediaBox.width - configuration.margins.horizontal
-        let contentHeight = configuration.mediaBox.height - configuration.margins.vertical
+        let contentWidth = configuration.mediaBox.width - PDF.UserSpace.Width(_unchecked: configuration.margins.horizontal)
+        let contentHeight = configuration.mediaBox.height - PDF.UserSpace.Height(_unchecked: configuration.margins.vertical)
 
         self = PDF.Context(
-            x: .zero + configuration.margins.leading,
-            y: .zero + configuration.margins.top,
+            x: .zero + PDF.UserSpace.Width(_unchecked: configuration.margins.leading),
+            y: .zero + PDF.UserSpace.Height(_unchecked: configuration.margins.top),
             availableWidth: contentWidth,
             availableHeight: contentHeight,
             mediaBox: configuration.mediaBox,

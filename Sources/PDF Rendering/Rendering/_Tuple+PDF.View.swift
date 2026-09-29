@@ -1,7 +1,7 @@
 public import PDF_Standard
-public import Render
+public import Renderer
 
-extension Render._Tuple: PDF.View where repeat each Content: PDF.View {
+extension Renderer.Document._Tuple: PDF.View where repeat each Content: PDF.View {
     public typealias Content = Never
 
     public var body: Never { fatalError("_Tuple uses direct rendering") }

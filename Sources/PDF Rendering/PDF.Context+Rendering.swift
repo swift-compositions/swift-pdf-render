@@ -1,6 +1,6 @@
 import Layout
 public import PDF_Standard
-public import Render
+public import Renderer
 
 extension PDF.Context {
 
@@ -20,8 +20,8 @@ extension PDF.Context {
 
     public static func _pushBlock(
         _ context: inout Self,
-        role: Render.Semantic.Block?,
-        style: Render.Style
+        role: Renderer.Document.Semantic.Block?,
+        style: Renderer.Document.Style
     ) {
         context.flush.inline()
         context.scopes.append(context.savedScope())
@@ -72,8 +72,8 @@ extension PDF.Context {
 
     public static func _pushInline(
         _ context: inout Self,
-        role: Render.Semantic.Inline?,
-        style: Render.Style
+        role: Renderer.Document.Semantic.Inline?,
+        style: Renderer.Document.Style
     ) {
         context.scopes.append(context.savedScope())
         context.apply(style)
@@ -97,7 +97,7 @@ extension PDF.Context {
         }
     }
 
-    public static func _pushList(_ context: inout Self, kind: Render.Semantic.List, start: Int?) {
+    public static func _pushList(_ context: inout Self, kind: Renderer.Document.Semantic.List, start: Int?) {
         context.flush.inline()
         context.scopes.append(context.savedScope())
 
@@ -199,7 +199,7 @@ extension PDF.Context {
 
 extension PDF.Context {
 
-    private mutating func apply(_ style: Render.Style) {
+    private mutating func apply(_ style: Renderer.Document.Style) {
         if let size = style.font.size {
             self.style.fontSize = PDF.UserSpace.Size<1>(Double(size))
         }
@@ -220,7 +220,7 @@ extension PDF.Context {
 
 extension PDF.Color {
 
-    init(_ color: Render.Style.Color) {
+    init(_ color: Renderer.Document.Style.Color) {
         self =
             switch color {
             case .black: .gray(0)

@@ -1,4 +1,4 @@
-import Binary_Serializable
+import Binary
 import Foundation
 import PDF_Standard
 import Testing

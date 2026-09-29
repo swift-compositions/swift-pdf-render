@@ -1,5 +1,5 @@
 public import Axis
-import Dimension
+import Spatial
 import Geometry
 import ISO_32000_Shared
 public import Layout

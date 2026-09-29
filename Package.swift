@@ -16,10 +16,10 @@ extension Target.Dependency {
         .product(name: "PDF Standard", package: "swift-pdf-standard")
     }
     static var renderingPrimitives: Self {
-        .product(name: "Render", package: "swift-render")
+        .product(name: "Renderer", package: "swift-renderer")
     }
     static var copyOnWrite: Self {
-        .product(name: "Copy on Write", package: "swift-copy-on-write")
+        .product(name: "Copy on Write Macro", package: "swift-copy-on-write")
     }
     static var ascii: Self {
         .product(name: "ASCII", package: "swift-ascii")
@@ -57,40 +57,39 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/swift-standards/swift-pdf-standard.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-molecules/swift-render.git",
-            branch: "main"
-        ),
+            url: "https://github.com/swift-atoms/swift-renderer.git",
+            branch: "main", traits: ["Document"]),
         .package(
-            url: "https://github.com/swift-compositions/swift-copy-on-write.git",
+            url: "https://github.com/swift-molecules/swift-copy-on-write.git",
             branch: "main"
         ),
-        .package(url: "https://github.com/swift-compositions/swift-ascii.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-ascii.git", branch: "main"),
         .package(
             url: "https://github.com/swift-molecules/swift-layout.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-property.git",
+            url: "https://github.com/swift-atoms/swift-property.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-axis.git",
+            url: "https://github.com/swift-atoms/swift-axis.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-dimension.git",
+            url: "https://github.com/swift-atoms/swift-spatial.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-pair.git",
+            url: "https://github.com/swift-atoms/swift-pair.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-ownership.git",
+            url: "https://github.com/swift-atoms/swift-ownership.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-byte.git",
+            url: "https://github.com/swift-atoms/swift-byte.git",
             branch: "main"
         ),
     ],
@@ -115,8 +114,8 @@ let package = Package(
             dependencies: [
                 .pdfRendering,
                 .product(
-                    name: "Dimension Test Support",
-                    package: "swift-dimension"
+                    name: "Spatial Test Support",
+                    package: "swift-spatial"
                 ),
             ],
             path: "Tests/Support"

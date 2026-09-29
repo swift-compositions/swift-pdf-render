@@ -1,10 +1,10 @@
 public import PDF_Standard
-public import Render
+public import Renderer
 
-extension Render.Empty: PDF.View {
+extension Renderer.Document.Empty: PDF.View {
     public typealias Content = Never
 
-    public static func _render(_ markup: Render.Empty, context: inout PDF.Context) {
+    public static func _render(_ markup: Renderer.Document.Empty, context: inout PDF.Context) {
 
     }
 

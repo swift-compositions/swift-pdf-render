@@ -1,8 +1,8 @@
 public import Ownership
 public import PDF_Standard
-import Render
+import Renderer
 
-extension Render.Context {
+extension Renderer.Document.Context {
 
     public static func pdf(state: Ownership.Mutable<PDF.Context>) -> Self {
         .init(

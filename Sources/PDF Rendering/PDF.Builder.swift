@@ -1,7 +1,7 @@
 public import PDF_Standard
-public import Render
+public import Renderer
 
-public typealias BuilderRaw = Render.Builder
+public typealias BuilderRaw = Renderer.Document.Builder
 
 extension PDF {
 
@@ -10,7 +10,7 @@ extension PDF {
 
 extension BuilderRaw {
 
-    public static func buildBlock() -> Render.Empty {
-        Render.Empty()
+    public static func buildBlock() -> Renderer.Document.Empty {
+        Renderer.Document.Empty()
     }
 }
