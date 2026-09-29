@@ -138,7 +138,7 @@ extension PDF.Context.Text.Run {
                 currentWinAnsiBytes.append(contentsOf: fallback)
             } else {
                 flushDingbats()
-                currentWinAnsiBytes.append(0x3F)
+                currentWinAnsiBytes.append(Byte(bitPattern: 0x3F))
             }
         }
 

@@ -56,6 +56,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swift-standards/swift-pdf-standard.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-geometry.git", branch: "main", traits: ["Affine"]),
+        .package(url: "https://github.com/swift-atoms/swift-direction.git", branch: "main"),
         .package(
             url: "https://github.com/swift-atoms/swift-renderer.git",
             branch: "main", traits: ["Document"]),
@@ -103,6 +105,7 @@ let package = Package(
                 .ascii,
                 .layoutPrimitives,
                 .product(name: "Axis", package: "swift-axis"),
+                .product(name: "Direction", package: "swift-direction"),
                 .propertyPrimitives,
                 .pairPrimitives,
                 .ownershipMutablePrimitives,

@@ -1,3 +1,4 @@
+public import Direction
 import Geometry
 public import Layout
 public import PDF_Standard

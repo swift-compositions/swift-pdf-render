@@ -1,3 +1,4 @@
+import Byte
 import Layout
 import PDF_Rendering_Test_Support
 import PDF_Standard
@@ -138,12 +139,12 @@ struct `PDF.Text Tests` {
     @Test
     func `Stores content as bytes`() {
         let text = PDF.Text("ABC")
-        #expect(text.content == [0x41, 0x42, 0x43])
+        #expect(text.content == [0x41, 0x42, 0x43].map(Byte.init(bitPattern:)))
     }
 
     @Test
     func `Creates from raw bytes`() {
-        let text = PDF.Text(bytes: [0x48, 0x69])
+        let text = PDF.Text(bytes: [0x48, 0x69].map(Byte.init(bitPattern:)))
         #expect(text.string == "Hi")
     }
 }

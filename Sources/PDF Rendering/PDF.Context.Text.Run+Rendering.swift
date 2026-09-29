@@ -498,7 +498,7 @@ extension PDF.Context.Text.Run {
                         utf8Buffer.append(.ascii.space)
                         lastWasSpace = true
                     }
-                } else if byte < 0x80 {
+                } else if byte.underlying < 0x80 {
 
                     utf8Buffer.append(byte.underlying)
                     lastWasSpace = false

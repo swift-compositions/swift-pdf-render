@@ -1,3 +1,4 @@
+public import Direction
 public import Layout
 public import PDF_Standard
 public import Pair

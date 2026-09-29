@@ -272,7 +272,7 @@ extension PDF.Context {
                 if !data.isEmpty {
                     data.append(.ascii.lf)
                 }
-                data.append(contentsOf: [UInt8]("ET".utf8))
+                data.append(contentsOf: [Byte](utf8: "ET"))
             }
             let currentStream = ISO_32000.ContentStream(
                 data: data,
