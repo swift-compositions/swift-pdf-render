@@ -32,9 +32,6 @@ struct `Preview Copy-Paste Tests` {
         print("PDF contains '(hello world)' with literal space: \(hasLiteralSpace)")
         print("PDF contains separate '(hello)' and '(world)': \(hasSeparateWords)")
 
-        let path = try PDFOutput.write(pdfBytes, name: "preview-test-space-check")
-        print("Test PDF written to: \(path)")
-
         if let streamStart = pdfString.range(of: "stream\n"),
             let streamEnd = pdfString.range(of: "\nendstream")
         {
@@ -62,8 +59,6 @@ struct `Preview Copy-Paste Tests` {
         }
 
         let pdfBytes = [UInt8](pdfDocument)
-        let path = try PDFOutput.write(pdfBytes, name: "preview-test-paragraph")
-        print("Paragraph test PDF written to: \(path)")
 
         let pdfString = String(decoding: pdfBytes, as: UTF8.self)
         if let streamStart = pdfString.range(of: "stream\n"),
@@ -97,8 +92,6 @@ struct `Preview Copy-Paste Tests` {
         }
 
         let pdfBytes = [UInt8](pdfDocument)
-        let path = try PDFOutput.write(pdfBytes, name: "preview-test-multiword")
-        print("Multiple words test PDF written to: \(path)")
 
         let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 
@@ -144,8 +137,6 @@ struct `Preview Copy-Paste Tests` {
         }
 
         let pdfBytes = [UInt8](pdfDocument)
-        let path = try PDFOutput.write(pdfBytes, name: "preview-test-forced-wrap")
-        print("Forced wrap test PDF written to: \(path)")
 
         let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 

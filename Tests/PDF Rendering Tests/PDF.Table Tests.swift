@@ -85,9 +85,6 @@ struct `PDF.Table Tests` {
 
         let bytes = [UInt8](pdfDocument)
 
-        let path = try PDFOutput.write(bytes, name: "table")
-
-        print("PDF written to: \(path)")
         #expect(!bytes.isEmpty)
     }
 }

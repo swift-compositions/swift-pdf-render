@@ -73,9 +73,6 @@ struct `PDF.Output Tests` {
 
         let bytes = [UInt8](pdfDocument)
 
-        let path = try PDFOutput.write(bytes, name: "test")
-
-        print("PDF written to: \(path)")
         #expect(!bytes.isEmpty)
     }
 
@@ -115,9 +112,6 @@ struct `PDF.Output Tests` {
 
         let bytes = [UInt8](pdfDocument)
 
-        let path = try PDFOutput.write(bytes, name: "multi-page")
-
-        print("PDF written to: \(path)")
         #expect(!bytes.isEmpty)
     }
 
@@ -196,9 +190,6 @@ struct `PDF.Output Tests` {
 
         let bytes = [UInt8](pdfDocument)
 
-        let path = try PDFOutput.write(bytes, name: "graphics")
-
-        print("PDF written to: \(path)")
         #expect(!bytes.isEmpty)
     }
 }
