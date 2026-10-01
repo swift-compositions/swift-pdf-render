@@ -117,7 +117,7 @@ let package = Package(
             dependencies: [
                 .pdfRendering,
                 .product(
-                    name: "Spatial Test Support",
+                    name: "Space Test Support",
                     package: "swift-spatial"
                 ),
             ],
