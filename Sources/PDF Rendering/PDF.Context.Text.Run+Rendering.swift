@@ -492,7 +492,7 @@ extension PDF.Context.Text.Run {
             guard !run.bytes.isEmpty else { continue }
 
             for byte in run.bytes {
-                if byte.underlying.ascii.isWhitespace {
+                if ASCII.Code(unchecked: byte).isWhitespace {
 
                     if !lastWasSpace {
                         utf8Buffer.append(.ascii.space)
