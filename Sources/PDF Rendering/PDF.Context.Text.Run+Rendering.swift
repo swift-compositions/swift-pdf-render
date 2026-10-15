@@ -483,7 +483,7 @@ extension PDF.Context.Text.Run {
     private static func buildActualText(from runs: [PDF.Context.Text.Run]) -> String {
 
         let totalBytes = runs.reduce(0) { $0 + $1.bytes.count }
-        var utf8Buffer: [UInt8] = []
+        var utf8Buffer: [Byte] = []
         utf8Buffer.reserveCapacity(totalBytes)
 
         var lastWasSpace = true
@@ -500,17 +500,17 @@ extension PDF.Context.Text.Run {
                     }
                 } else if byte.underlying < 0x80 {
 
-                    utf8Buffer.append(byte.underlying)
+                    utf8Buffer.append(byte)
                     lastWasSpace = false
                 } else if let scalar = ISO_32000.WinAnsiEncoding.decode(byte) {
 
                     for unit in scalar.utf8 {
-                        utf8Buffer.append(unit)
+                        utf8Buffer.append(Byte(bitPattern: unit))
                     }
                     lastWasSpace = false
                 } else {
 
-                    utf8Buffer.append(0x3F)
+                    utf8Buffer.append(.ascii.questionMark)
                     lastWasSpace = false
                 }
             }

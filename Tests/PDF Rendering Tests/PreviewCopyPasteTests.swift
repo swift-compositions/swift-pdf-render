@@ -1,4 +1,5 @@
 import Binary
+import Byte
 import Foundation
 import PDF_Standard
 import Testing
@@ -22,7 +23,7 @@ struct `Preview Copy-Paste Tests` {
             PDF.Text("hello world")
         }
 
-        let pdfBytes = [UInt8](pdfDocument)
+        let pdfBytes = [Byte](pdfDocument)
 
         let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 
@@ -58,7 +59,7 @@ struct `Preview Copy-Paste Tests` {
             PDF.Text(testParagraph)
         }
 
-        let pdfBytes = [UInt8](pdfDocument)
+        let pdfBytes = [Byte](pdfDocument)
 
         let pdfString = String(decoding: pdfBytes, as: UTF8.self)
         if let streamStart = pdfString.range(of: "stream\n"),
@@ -91,7 +92,7 @@ struct `Preview Copy-Paste Tests` {
             PDF.Text(shortPhrase)
         }
 
-        let pdfBytes = [UInt8](pdfDocument)
+        let pdfBytes = [Byte](pdfDocument)
 
         let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 
@@ -136,7 +137,7 @@ struct `Preview Copy-Paste Tests` {
             PDF.Text(testText)
         }
 
-        let pdfBytes = [UInt8](pdfDocument)
+        let pdfBytes = [Byte](pdfDocument)
 
         let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 

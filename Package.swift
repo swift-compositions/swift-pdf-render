@@ -60,7 +60,9 @@ let package = Package(
         .package(url: "https://github.com/swift-atoms/swift-direction.git", branch: "main"),
         .package(
             url: "https://github.com/swift-atoms/swift-renderer.git",
-            branch: "main", traits: ["Document"]),
+            branch: "main",
+            traits: ["Document"]
+        ),
         .package(
             url: "https://github.com/swift-molecules/swift-copy-on-write.git",
             branch: "main"
@@ -126,6 +128,7 @@ let package = Package(
         .testTarget(
             name: "PDF Rendering Tests",
             dependencies: [
+                .product(name: "Byte", package: "swift-byte"),
                 .pdfRendering,
                 "PDF Rendering Test Support",
             ],

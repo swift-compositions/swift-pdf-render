@@ -1,4 +1,5 @@
 import Binary
+import Byte
 import Foundation
 import Layout
 import PDF_Rendering_Test_Support
@@ -71,7 +72,7 @@ struct `PDF.Output Tests` {
             SampleDocument()
         }
 
-        let bytes = [UInt8](pdfDocument)
+        let bytes = [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }
@@ -110,7 +111,7 @@ struct `PDF.Output Tests` {
             MultiPageDocument()
         }
 
-        let bytes = [UInt8](pdfDocument)
+        let bytes = [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }
@@ -188,7 +189,7 @@ struct `PDF.Output Tests` {
             }
         }
 
-        let bytes = [UInt8](pdfDocument)
+        let bytes = [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }

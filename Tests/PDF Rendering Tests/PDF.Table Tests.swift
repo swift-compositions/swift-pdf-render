@@ -1,4 +1,5 @@
 import Binary
+import Byte
 import Foundation
 import Layout
 import PDF_Rendering_Test_Support
@@ -83,7 +84,7 @@ struct `PDF.Table Tests` {
             }
         }
 
-        let bytes = [UInt8](pdfDocument)
+        let bytes = [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }
