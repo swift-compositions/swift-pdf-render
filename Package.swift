@@ -97,7 +97,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: .pdfRendering,
+            name: "PDF Rendering",
             dependencies: [
                 .pdfStandard,
                 .renderingPrimitives,
@@ -124,7 +124,7 @@ let package = Package(
             path: "Tests/Support"
         ),
         .testTarget(
-            name: .pdfRendering.tests,
+            name: "PDF Rendering Tests",
             dependencies: [
                 .pdfRendering,
                 "PDF Rendering Test Support",
