@@ -1,9 +1,9 @@
 public import Axis
-import Space
 import Geometry
 import ISO_32000_Shared
 public import Layout
 public import PDF_Standard
+import Space
 
 public typealias LayoutRaw = Layout
 
