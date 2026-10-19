@@ -102,8 +102,10 @@ extension PDF.Element: PDF.View {
             return (.tfoot, nil)
         }
 
-        let typeName = String(describing: Tag.self)
-
-        return (try! ISO_32000.COS.Name(typeName), nil)
+        do throws(ISO_32000.COS.Name.Error) {
+            return (try ISO_32000.COS.Name(String(describing: Tag.self)), nil)
+        } catch {
+            return (.span, nil)
+        }
     }
 }
