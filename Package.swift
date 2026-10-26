@@ -81,7 +81,7 @@ let package = Package(
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-atoms/swift-spatial.git",
+            url: "https://github.com/swift-atoms/swift-space.git",
             branch: "main"
         ),
         .package(
@@ -120,7 +120,7 @@ let package = Package(
                 .pdfRendering,
                 .product(
                     name: "Space Test Support",
-                    package: "swift-spatial"
+                    package: "swift-space"
                 ),
             ],
             path: "Tests/Support"
