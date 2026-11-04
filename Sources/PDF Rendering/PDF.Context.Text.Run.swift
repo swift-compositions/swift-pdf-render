@@ -121,19 +121,13 @@ extension PDF.Context.Text.Run {
             if value < 0x20 {
                 flushDingbats()
                 currentWinAnsiBytes.append(Byte(UInt8(value)))
-            }
-
-            else if let byte = ISO_32000.WinAnsiEncoding.encode(scalar) {
+            } else if let byte = ISO_32000.WinAnsiEncoding.encode(scalar) {
                 flushDingbats()
                 currentWinAnsiBytes.append(byte)
-            }
-
-            else if let byte = ISO_32000.ZapfDingbatsEncoding.encode(scalar) {
+            } else if let byte = ISO_32000.ZapfDingbatsEncoding.encode(scalar) {
                 flushWinAnsi()
                 currentDingbatsBytes.append(byte)
-            }
-
-            else if let fallback = ISO_32000.unicodeFallbackMap[value] {
+            } else if let fallback = ISO_32000.unicodeFallbackMap[value] {
                 flushDingbats()
                 currentWinAnsiBytes.append(contentsOf: fallback)
             } else {

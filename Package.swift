@@ -2,45 +2,6 @@
 
 import PackageDescription
 
-extension String {
-    static let pdfRendering: Self = "PDF Rendering"
-    var tests: Self { self + " Tests" }
-}
-
-extension Target.Dependency {
-    static var pdfRendering: Self { .target(name: .pdfRendering) }
-}
-
-extension Target.Dependency {
-    static var pdfStandard: Self {
-        .product(name: "PDF Standard", package: "swift-pdf-standard")
-    }
-    static var renderingPrimitives: Self {
-        .product(name: "Renderer", package: "swift-renderer")
-    }
-    static var copyOnWrite: Self {
-        .product(name: "Copy on Write Macro", package: "swift-copy-on-write")
-    }
-    static var ascii: Self {
-        .product(name: "ASCII", package: "swift-ascii")
-    }
-    static var layoutPrimitives: Self {
-        .product(name: "Layout", package: "swift-layout")
-    }
-    static var propertyPrimitives: Self {
-        .product(name: "Property", package: "swift-property")
-    }
-    static var pairPrimitives: Self {
-        .product(name: "Pair", package: "swift-pair")
-    }
-    static var ownershipMutablePrimitives: Self {
-        .product(name: "Ownership", package: "swift-ownership")
-    }
-    static var bytePrimitives: Self {
-        .product(name: "Byte", package: "swift-byte")
-    }
-}
-
 let package = Package(
     name: "swift-pdf-render",
     platforms: [
@@ -51,7 +12,7 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        .library(name: .pdfRendering, targets: [.pdfRendering]),
+        .library(name: "PDF Rendering", targets: ["PDF Rendering"]),
         .library(name: "PDF Rendering Test Support", targets: ["PDF Rendering Test Support"]),
     ],
     dependencies: [
@@ -101,23 +62,23 @@ let package = Package(
         .target(
             name: "PDF Rendering",
             dependencies: [
-                .pdfStandard,
-                .renderingPrimitives,
-                .copyOnWrite,
-                .ascii,
-                .layoutPrimitives,
+                .product(name: "PDF Standard", package: "swift-pdf-standard"),
+                .product(name: "Renderer", package: "swift-renderer"),
+                .product(name: "Copy on Write Macro", package: "swift-copy-on-write"),
+                .product(name: "ASCII", package: "swift-ascii"),
+                .product(name: "Layout", package: "swift-layout"),
                 .product(name: "Axis", package: "swift-axis"),
                 .product(name: "Direction", package: "swift-direction"),
-                .propertyPrimitives,
-                .pairPrimitives,
-                .ownershipMutablePrimitives,
-                .bytePrimitives,
+                .product(name: "Property", package: "swift-property"),
+                .product(name: "Pair", package: "swift-pair"),
+                .product(name: "Ownership", package: "swift-ownership"),
+                .product(name: "Byte", package: "swift-byte"),
             ]
         ),
         .target(
             name: "PDF Rendering Test Support",
             dependencies: [
-                .pdfRendering,
+                .target(name: "PDF Rendering"),
                 .product(
                     name: "Space Test Support",
                     package: "swift-space"
@@ -129,8 +90,8 @@ let package = Package(
             name: "PDF Rendering Tests",
             dependencies: [
                 .product(name: "Byte", package: "swift-byte"),
-                .pdfRendering,
-                "PDF Rendering Test Support",
+                .target(name: "PDF Rendering"),
+                .target(name: "PDF Rendering Test Support"),
             ],
             path: "Tests/PDF Rendering Tests"
         ),
