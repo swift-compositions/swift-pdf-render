@@ -5,7 +5,5 @@ extension Never: PDF.View {
         fatalError("Never has no body")
     }
 
-    public static func _render(_ view: Self, context: inout PDF.Context) {
-        fatalError("Never cannot be rendered")
-    }
+    public static func _render(_ view: Self, context: inout PDF.Context) {}
 }
