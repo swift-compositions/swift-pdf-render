@@ -5,7 +5,7 @@ import Testing
 
 @testable import PDF_Rendering
 
-extension PDF.Context {
+extension `PDF.Context Tests` {
     @Suite
     struct `Edge Case` {
 
