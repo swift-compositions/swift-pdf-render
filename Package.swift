@@ -17,6 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swift-standards/swift-pdf-standard.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-3986.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-geometry.git", branch: "main", traits: ["Affine"]),
         .package(url: "https://github.com/swift-atoms/swift-direction.git", branch: "main"),
         .package(
@@ -63,6 +64,7 @@ let package = Package(
             name: "PDF Rendering",
             dependencies: [
                 .product(name: "PDF Standard", package: "swift-pdf-standard"),
+                .product(name: "RFC 3986", package: "swift-rfc-3986"),
                 .product(name: "Renderer", package: "swift-renderer"),
                 .product(name: "Copy on Write Macro", package: "swift-copy-on-write"),
                 .product(name: "ASCII", package: "swift-ascii"),

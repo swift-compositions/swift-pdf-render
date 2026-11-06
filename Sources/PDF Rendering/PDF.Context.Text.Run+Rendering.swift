@@ -2,6 +2,7 @@ import ASCII
 import Byte
 import Layout
 public import PDF_Standard
+import RFC_3986
 
 extension PDF.Context.Text.Run {
 
@@ -419,7 +420,7 @@ extension PDF.Context.Text.Run {
         if let internalId = run.internalLinkId {
             context.addPendingInternalLink(rect: linkRect, targetId: internalId)
         } else if let url = run.linkURL {
-            context.addLinkAnnotation(rect: linkRect, uri: url)
+            context.addLinkAnnotation(rect: linkRect, uri: RFC_3986.URI(unchecked: url))
         }
     }
 

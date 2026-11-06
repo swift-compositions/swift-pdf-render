@@ -3,6 +3,7 @@ public import Copy_on_Write_Macro
 import Geometry
 import Layout
 public import PDF_Standard
+public import RFC_3986
 
 extension PDF {
 
@@ -228,7 +229,7 @@ extension PDF.Context {
 
     public mutating func addLinkAnnotation(
         rect: PDF.UserSpace.Rectangle,
-        uri: String
+        uri: RFC_3986.URI
     ) {
         let link = PDF.Annotation.Link(uri: uri)
         let annotation = PDF.Annotation(rect: rect, content: .link(link))

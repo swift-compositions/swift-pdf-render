@@ -18,6 +18,8 @@ extension PDF.Context.Text {
 
         public let verticalOffset: PDF.UserSpace.Height
 
+        // swift-linter:disable:next raw concept
+        // REASON: a link's target as the document wrote it, an HTML href or a Markdown destination that may be relative or malformed, carried unparsed to where the PDF URI action is written; looked at RFC_3986.URI, whose parsing refuses such text and would silently drop the link.
         public let linkURL: String?
 
         public let internalLinkId: String?
@@ -29,6 +31,8 @@ extension PDF.Context.Text {
             color: PDF.Color,
             textDecoration: PDF.Annotation.TextMarkup.Kind? = .none,
             verticalOffset: PDF.UserSpace.Height = .init(0),
+            // swift-linter:disable:next raw concept
+            // REASON: a link's target as the document wrote it, an HTML href or a Markdown destination that may be relative or malformed, carried unparsed to where the PDF URI action is written; looked at RFC_3986.URI, whose parsing refuses such text and would silently drop the link.
             linkURL: String? = nil,
             internalLinkId: String? = nil
         ) {
@@ -50,6 +54,8 @@ extension PDF.Context.Text {
             color: PDF.Color,
             textDecoration: PDF.Annotation.TextMarkup.Kind? = .none,
             verticalOffset: PDF.UserSpace.Height = .init(0),
+            // swift-linter:disable:next raw concept
+            // REASON: a link's target as the document wrote it, an HTML href or a Markdown destination that may be relative or malformed, carried unparsed to where the PDF URI action is written; looked at RFC_3986.URI, whose parsing refuses such text and would silently drop the link.
             linkURL: String? = nil,
             internalLinkId: String? = nil
         ) {
@@ -74,6 +80,8 @@ extension PDF.Context.Text.Run {
         color: PDF.Color,
         textDecoration: PDF.Annotation.TextMarkup.Kind? = .none,
         verticalOffset: PDF.UserSpace.Height = .init(0),
+        // swift-linter:disable:next raw concept
+        // REASON: a link's target as the document wrote it, an HTML href or a Markdown destination that may be relative or malformed, carried unparsed to where the PDF URI action is written; looked at RFC_3986.URI, whose parsing refuses such text and would silently drop the link.
         linkURL: String? = nil,
         internalLinkId: String? = nil
     ) -> [Self] {
