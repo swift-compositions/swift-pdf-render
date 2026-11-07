@@ -6,6 +6,9 @@ import Tests_Inline_Snapshot
 
 @Suite
 struct PDFTableSnapshotTests {
+}
+
+extension PDFTableSnapshotTests {
     @Suite struct Snapshot {}
 }
 

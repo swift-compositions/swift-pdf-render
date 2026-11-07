@@ -6,6 +6,9 @@ import Tests_Inline_Snapshot
 
 @Suite
 struct PreviewCopyPasteSnapshotTests {
+}
+
+extension PreviewCopyPasteSnapshotTests {
     @Suite struct Snapshot {}
 }
 
