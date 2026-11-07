@@ -9,7 +9,7 @@ public typealias LayoutRaw = Layout
 
 extension PDF {
 
-    public typealias Layout = LayoutRaw<Double, ISO_32000_Shared.UserSpace>
+    public typealias Layout = LayoutRaw<Double, ISO_32000_Shared::UserSpace>
 }
 
 extension PDF {
@@ -17,7 +17,7 @@ extension PDF {
     public typealias Stack<C> = PDF.Layout.Stack<C>
 }
 
-extension LayoutRaw<Double, ISO_32000_Shared.UserSpace>.Stack: PDF.View where Content: PDF.View {
+extension LayoutRaw<Double, ISO_32000_Shared::UserSpace>.Stack: PDF.View where Content: PDF.View {
     public var body: some PDF.View {
         content
     }
@@ -69,7 +69,7 @@ extension LayoutRaw<Double, ISO_32000_Shared.UserSpace>.Stack: PDF.View where Co
     }
 }
 
-extension LayoutRaw<Double, ISO_32000_Shared.UserSpace>.Stack where Content: PDF.View {
+extension LayoutRaw<Double, ISO_32000_Shared::UserSpace>.Stack where Content: PDF.View {
 
     public init(
         _ axis: Axis<2> = .vertical,
