@@ -80,7 +80,7 @@ extension PDFOutputSnapshotTests.Snapshot {
                     PDF.Text("Multi-Page Test Document", state: .init(fontSize: 24))
                     PDF.Divider()
 
-                    for i in 1...50 {
+                    (1...50).forEach { i in
                         PDF.Text(
                             "Paragraph \(i): This is some sample text that will help fill the page. Each paragraph adds content that will eventually cause a page break when the content exceeds the available height.",
                             state: .init(fontSize: 11)

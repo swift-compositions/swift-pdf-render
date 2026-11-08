@@ -96,7 +96,7 @@ extension PDF.Test.Performance {
     @Test(.timed(iterations: 50, warmup: 5))
     func `document with 10 text elements`() {
         let doc = PDF.Document {
-            for i in 0..<10 {
+            (0..<10).forEach { i in
                 PDF.Text("This is paragraph \(i) with some content.")
             }
         }
@@ -106,7 +106,7 @@ extension PDF.Test.Performance {
     @Test(.timed(iterations: 10, warmup: 2))
     func `document with 100 text elements`() {
         let doc = PDF.Document {
-            for i in 0..<100 {
+            (0..<100).forEach { i in
                 PDF.Text("This is paragraph \(i) with some content to make it longer.")
             }
         }
