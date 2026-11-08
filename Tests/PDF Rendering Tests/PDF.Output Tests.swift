@@ -86,7 +86,7 @@ struct `PDF.Output Tests` {
                     PDF.Text("Multi-Page Test Document", state: .init(fontSize: 24))
                     PDF.Divider()
 
-                    (1...50).forEach { i in
+                    for i in 1...50 {
                         PDF.Text(
                             "Paragraph \(i): This is some sample text that will help fill the page. Each paragraph adds content that will eventually cause a page break when the content exceeds the available height.",
                             state: .init(fontSize: 11)
