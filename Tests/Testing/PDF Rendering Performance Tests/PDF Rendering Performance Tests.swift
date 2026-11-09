@@ -90,7 +90,7 @@ extension PDF.Test.Performance {
         let doc = PDF.Document {
             PDF.Text("Hello, World!")
         }
-        let _ = [Byte](doc)
+        _ = try? [Byte](doc)
     }
 
     @Test(.timed(iterations: 50, warmup: 5))
@@ -100,7 +100,7 @@ extension PDF.Test.Performance {
                 PDF.Text("This is paragraph \(i) with some content.")
             }
         }
-        let _ = [Byte](doc)
+        _ = try? [Byte](doc)
     }
 
     @Test(.timed(iterations: 10, warmup: 2))
@@ -110,7 +110,7 @@ extension PDF.Test.Performance {
                 PDF.Text("This is paragraph \(i) with some content to make it longer.")
             }
         }
-        let _ = [Byte](doc)
+        _ = try? [Byte](doc)
     }
 
     @Test(.timed(iterations: 500, warmup: 50))
@@ -136,7 +136,7 @@ extension PDF.Test.Performance {
             PDF.Text("This is a test paragraph with some content.")
             PDF.Text("This is a test paragraph with some content.")
         }
-        let _ = [Byte](doc)
+        _ = try? [Byte](doc)
     }
 
     @Test(.timed(iterations: 5, warmup: 2))
@@ -147,7 +147,7 @@ extension PDF.Test.Performance {
         let doc = PDF.Document {
             PDF.Text(fullText)
         }
-        let _ = [Byte](doc)
+        _ = try? [Byte](doc)
     }
 
     @Test(.timed(iterations: 100, warmup: 10))

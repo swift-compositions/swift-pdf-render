@@ -84,7 +84,7 @@ struct `PDF.Table Tests` {
             }
         }
 
-        let bytes = [Byte](pdfDocument)
+        let bytes = try [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }

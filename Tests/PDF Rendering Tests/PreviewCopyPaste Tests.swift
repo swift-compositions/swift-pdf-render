@@ -26,7 +26,7 @@ extension `PreviewCopyPaste Tests` {
                 PDF.Text("hello world")
             }
 
-            let pdfBytes = [Byte](pdfDocument)
+            let pdfBytes = try [Byte](pdfDocument)
 
             let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 
@@ -62,7 +62,7 @@ extension `PreviewCopyPaste Tests` {
                 PDF.Text(testParagraph)
             }
 
-            let pdfBytes = [Byte](pdfDocument)
+            let pdfBytes = try [Byte](pdfDocument)
 
             let pdfString = String(decoding: pdfBytes, as: UTF8.self)
             if let streamStart = pdfString.range(of: "stream\n"),
@@ -95,7 +95,7 @@ extension `PreviewCopyPaste Tests` {
                 PDF.Text(shortPhrase)
             }
 
-            let pdfBytes = [Byte](pdfDocument)
+            let pdfBytes = try [Byte](pdfDocument)
 
             let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 
@@ -140,7 +140,7 @@ extension `PreviewCopyPaste Tests` {
                 PDF.Text(testText)
             }
 
-            let pdfBytes = [Byte](pdfDocument)
+            let pdfBytes = try [Byte](pdfDocument)
 
             let pdfString = String(decoding: pdfBytes, as: UTF8.self)
 

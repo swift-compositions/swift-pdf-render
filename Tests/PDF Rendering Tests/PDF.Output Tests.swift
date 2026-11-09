@@ -72,7 +72,7 @@ struct `PDF.Output Tests` {
             SampleDocument()
         }
 
-        let bytes = [Byte](pdfDocument)
+        let bytes = try [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }
@@ -111,7 +111,7 @@ struct `PDF.Output Tests` {
             MultiPageDocument()
         }
 
-        let bytes = [Byte](pdfDocument)
+        let bytes = try [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }
@@ -189,7 +189,7 @@ struct `PDF.Output Tests` {
             }
         }
 
-        let bytes = [Byte](pdfDocument)
+        let bytes = try [Byte](pdfDocument)
 
         #expect(!bytes.isEmpty)
     }
