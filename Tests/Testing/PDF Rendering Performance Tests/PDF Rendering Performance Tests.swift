@@ -86,35 +86,35 @@ extension PDF.Test.Performance {
     }
 
     @Test(.timed(iterations: 100, warmup: 10))
-    func `document with 1 text element`() {
+    func `document with 1 text element`() throws {
         let doc = PDF.Document {
             PDF.Text("Hello, World!")
         }
-        _ = try? [Byte](doc)
+        _ = try [Byte](doc)
     }
 
     @Test(.timed(iterations: 50, warmup: 5))
-    func `document with 10 text elements`() {
+    func `document with 10 text elements`() throws {
         let doc = PDF.Document {
             (0..<10).forEach { i in
                 PDF.Text("This is paragraph \(i) with some content.")
             }
         }
-        _ = try? [Byte](doc)
+        _ = try [Byte](doc)
     }
 
     @Test(.timed(iterations: 10, warmup: 2))
-    func `document with 100 text elements`() {
+    func `document with 100 text elements`() throws {
         let doc = PDF.Document {
             (0..<100).forEach { i in
                 PDF.Text("This is paragraph \(i) with some content to make it longer.")
             }
         }
-        _ = try? [Byte](doc)
+        _ = try [Byte](doc)
     }
 
     @Test(.timed(iterations: 500, warmup: 50))
-    func `throughput single document with 18 paragraphs`() {
+    func `throughput single document with 18 paragraphs`() throws {
         let doc = PDF.Document {
             PDF.Text("Document")
             PDF.Text("This is a test paragraph with some content.")
@@ -136,18 +136,18 @@ extension PDF.Test.Performance {
             PDF.Text("This is a test paragraph with some content.")
             PDF.Text("This is a test paragraph with some content.")
         }
-        _ = try? [Byte](doc)
+        _ = try [Byte](doc)
     }
 
     @Test(.timed(iterations: 5, warmup: 2))
-    func `large document HexaPDF comparison`() {
+    func `large document HexaPDF comparison`() throws {
         let paragraph =
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. "
         let fullText = String(repeating: paragraph, count: 3700)
         let doc = PDF.Document {
             PDF.Text(fullText)
         }
-        _ = try? [Byte](doc)
+        _ = try [Byte](doc)
     }
 
     @Test(.timed(iterations: 100, warmup: 10))
