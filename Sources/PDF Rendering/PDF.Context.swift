@@ -162,6 +162,60 @@ extension PDF.Context {
 
 extension PDF.Context {
 
+    internal mutating func beginRow(
+        measuring body: (inout PDF.Context) -> Void
+    ) -> PDF.UserSpace.Y {
+        if !mode.measurement {
+            let rowHeight = measure(body)
+            if page.ensure(height: rowHeight) {
+                row.startY = layout.box.lly
+                row.maxY = layout.box.lly
+            }
+        }
+
+        let rowStartY = row.startY ?? layout.box.lly
+        row.startY = rowStartY
+        return rowStartY
+    }
+
+    internal mutating func renderRowCell(
+        startY rowStartY: inout PDF.UserSpace.Y,
+        _ cell: (inout PDF.Context) -> Void
+    ) {
+        if let spacing = self.spacing.horizontal,
+            let lastX = row.lastX,
+            layout.box.llx > lastX
+        {
+            advance.x(spacing)
+        }
+
+        let xBefore = layout.box.llx
+
+        let pagesBefore = completedPages.count
+        let virtualBreaksBefore = mode.pageBreaks
+
+        layout.box.lly = rowStartY
+
+        cell(&self)
+
+        if completedPages.count > pagesBefore
+            || mode.pageBreaks > virtualBreaksBefore
+        {
+            rowStartY = layout.initial.lly
+            row.startY = rowStartY
+            row.maxY = layout.box.lly
+        }
+
+        updateRowMaxY()
+
+        if layout.box.llx > xBefore {
+            row.lastX = xBefore
+        }
+    }
+}
+
+extension PDF.Context {
+
     public mutating func append(inline run: PDF.Context.Text.Run) {
         self.inline.runs.append(run)
     }

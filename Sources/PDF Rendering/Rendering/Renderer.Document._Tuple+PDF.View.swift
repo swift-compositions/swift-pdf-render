@@ -38,51 +38,13 @@ extension Renderer.Document._Tuple: PDF.View where repeat each Content: PDF.View
     }
 
     private static func _renderHorizontal(_ view: Self, context: inout PDF.Context) {
-
-        if !context.mode.measurement {
-            let rowHeight = context.measure { context in
-                _renderHorizontal(view, context: &context)
-            }
-            if context.page.ensure(height: rowHeight) {
-
-                context.row.startY = context.layout.box.lly
-                context.row.maxY = context.layout.box.lly
-            }
+        var rowStartY = context.beginRow { context in
+            _renderHorizontal(view, context: &context)
         }
 
-        var rowStartY = context.row.startY ?? context.layout.box.lly
-        context.row.startY = rowStartY
-
         func render<T: PDF.View>(_ element: T) {
-
-            if let spacing = context.spacing.horizontal,
-                let lastX = context.row.lastX,
-                context.layout.box.llx > lastX
-            {
-                context.advance.x(spacing)
-            }
-
-            let xBefore = context.layout.box.llx
-
-            let pagesBefore = context.completedPages.count
-            let virtualBreaksBefore = context.mode.pageBreaks
-
-            context.layout.box.lly = rowStartY
-
-            T._render(element, context: &context)
-
-            if context.completedPages.count > pagesBefore
-                || context.mode.pageBreaks > virtualBreaksBefore
-            {
-                rowStartY = context.layout.initial.lly
-                context.row.startY = rowStartY
-                context.row.maxY = context.layout.box.lly
-            }
-
-            context.updateRowMaxY()
-
-            if context.layout.box.llx > xBefore {
-                context.row.lastX = xBefore
+            context.renderRowCell(startY: &rowStartY) { context in
+                T._render(element, context: &context)
             }
         }
         repeat render(each view.content)

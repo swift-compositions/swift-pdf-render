@@ -33,26 +33,13 @@ extension Array: PDF.View where Element: PDF.View {
     }
 
     private static func _renderHorizontal(_ view: Self, context: inout PDF.Context) {
-        let rowStartY = context.row.startY ?? context.layout.box.lly
+        var rowStartY = context.beginRow { context in
+            _renderHorizontal(view, context: &context)
+        }
 
         for element in view {
-            if let spacing = context.spacing.horizontal,
-                let lastX = context.row.lastX,
-                context.layout.box.llx > lastX
-            {
-                context.advance.x(spacing)
-            }
-
-            let xBefore = context.layout.box.llx
-
-            context.layout.box.lly = rowStartY
-
-            Element._render(element, context: &context)
-
-            context.updateRowMaxY()
-
-            if context.layout.box.llx > xBefore {
-                context.row.lastX = xBefore
+            context.renderRowCell(startY: &rowStartY) { context in
+                Element._render(element, context: &context)
             }
         }
     }

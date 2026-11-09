@@ -76,5 +76,69 @@ extension `PDF.Context Tests` {
 
             #expect(context.completedPages.count == 1)
         }
+
+        @Test
+        func `Array-built horizontal row moves to the next page as a whole`() {
+            var context = PDF.Context(
+                x: 72,
+                y: 72,
+                availableWidth: 400,
+                availableHeight: 700,
+                mediaBox: .letter,
+                fontSize: 12,
+                lineHeight: 1.0
+            )
+
+            context.advance(693)
+
+            let labels = ["Cell 1", "Cell 2", "Cell 3"]
+            let row = PDF.Stack(.horizontal, spacing: 10) {
+                for label in labels {
+                    PDF.Text(label)
+                }
+            }
+            PDF.Stack._render(row, context: &context)
+
+            #expect(context.completedPages.count == 1)
+        }
+
+        @Test
+        func `Array-built and tuple-built rows end at the same position`() {
+            func render(_ body: (inout PDF.Context) -> Void) -> PDF.Context {
+                var context = PDF.Context(
+                    x: 72,
+                    y: 72,
+                    availableWidth: 400,
+                    availableHeight: 700,
+                    mediaBox: .letter,
+                    fontSize: 12,
+                    lineHeight: 1.0
+                )
+                context.advance(693)
+                body(&context)
+                return context
+            }
+
+            let labels = ["Cell 1", "Cell 2", "Cell 3"]
+            let array = render { context in
+                let row = PDF.Stack(.horizontal, spacing: 10) {
+                    for label in labels {
+                        PDF.Text(label)
+                    }
+                }
+                PDF.Stack._render(row, context: &context)
+            }
+            let tuple = render { context in
+                let row = PDF.Stack(.horizontal, spacing: 10) {
+                    PDF.Text("Cell 1")
+                    PDF.Text("Cell 2")
+                    PDF.Text("Cell 3")
+                }
+                PDF.Stack._render(row, context: &context)
+            }
+
+            #expect(array.completedPages.count == tuple.completedPages.count)
+            #expect(array.layout.box.lly == tuple.layout.box.lly)
+        }
     }
 }
