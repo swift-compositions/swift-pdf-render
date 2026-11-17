@@ -1,5 +1,6 @@
 public import PDF_Standard
 public import Renderer
+public import Renderer_Document
 
 extension Renderer.Document.Empty: PDF.View {
     public typealias Content = Never

@@ -1,6 +1,7 @@
 public import Ownership
 public import PDF_Standard
 import Renderer
+import Renderer_Document
 
 extension Renderer.Document.Context {
 

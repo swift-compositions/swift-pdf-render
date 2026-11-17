@@ -1,6 +1,7 @@
 import Layout
 public import PDF_Standard
 public import Renderer
+public import Renderer_Document
 
 extension PDF.Context {
 

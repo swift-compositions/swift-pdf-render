@@ -1,5 +1,6 @@
 public import PDF_Standard
 public import Renderer
+public import Renderer_Document
 
 public typealias BuilderRaw = Renderer.Document.Builder
 

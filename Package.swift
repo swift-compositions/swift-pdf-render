@@ -21,6 +21,7 @@ let package = Package(
         .package(url: "https://github.com/swift-atoms/swift-geometry.git", branch: "main", traits: ["Affine"]),
         .package(url: "https://github.com/swift-atoms/swift-direction.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-renderer.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-renderer-document.git", branch: "main"),
         .package(
             url: "https://github.com/swift-molecules/swift-copy-on-write.git",
             branch: "main"
@@ -62,6 +63,7 @@ let package = Package(
                 .product(name: "PDF Standard", package: "swift-pdf-standard"),
                 .product(name: "RFC 3986", package: "swift-rfc-3986"),
                 .product(name: "Renderer", package: "swift-renderer"),
+                .product(name: "Renderer Document", package: "swift-renderer-document"),
                 .product(name: "Copy on Write Macro", package: "swift-copy-on-write"),
                 .product(name: "ASCII", package: "swift-ascii"),
                 .product(name: "Layout", package: "swift-layout"),
