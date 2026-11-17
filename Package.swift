@@ -20,11 +20,7 @@ let package = Package(
         .package(url: "https://github.com/swift-ietf/swift-rfc-3986.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-geometry.git", branch: "main", traits: ["Affine"]),
         .package(url: "https://github.com/swift-atoms/swift-direction.git", branch: "main"),
-        .package(
-            url: "https://github.com/swift-atoms/swift-renderer.git",
-            branch: "main",
-            traits: ["Document"]
-        ),
+        .package(url: "https://github.com/swift-atoms/swift-renderer.git", branch: "main"),
         .package(
             url: "https://github.com/swift-molecules/swift-copy-on-write.git",
             branch: "main"
