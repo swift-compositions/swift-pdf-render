@@ -20,6 +20,15 @@ extension PDF.View where Content: PDF.View {
     }
 }
 
+extension PDF.View where Content == Never {
+
+    static var unrendered: Never {
+        // swift-linter:disable:next fatal error outside tests
+        // REASON: The only statement of a property of type Never, which the rule exempts since swift-institute/Issues#271; the linter CI runs predates that.
+        fatalError("A view whose Content is Never has no body; rendering is performed by _render")
+    }
+}
+
 extension PDF.View {
 
     public func render(context: inout PDF.Context) {

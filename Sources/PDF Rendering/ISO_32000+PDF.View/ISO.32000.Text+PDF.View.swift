@@ -4,9 +4,7 @@ import PDF_Standard
 
 extension ISO.`32000`.Text: PDF.View {
 
-    public var body: Never {
-        fatalError("PDF.Text is a leaf view")
-    }
+    public var body: Never { Self.unrendered }
 
     public static func _render(_ text: Self, context: inout PDF.Context) {
 

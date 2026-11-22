@@ -6,7 +6,7 @@ public import Pair
 extension Pair: PDF.View where First: PDF.View, Second: PDF.View {
     public typealias Content = Never
 
-    public var body: Never { fatalError("Pair uses direct rendering") }
+    public var body: Never { Self.unrendered }
 
     public static func _render(_ view: Self, context: inout PDF.Context) {
 

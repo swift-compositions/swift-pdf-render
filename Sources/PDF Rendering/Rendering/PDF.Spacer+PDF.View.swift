@@ -15,9 +15,7 @@ extension PDF {
 extension PDF.Spacer {
     public typealias Content = Never
 
-    public var body: Never {
-        fatalError("PDF.Spacer is a leaf view")
-    }
+    public var body: Never { Self.unrendered }
 
     public static func _render(_ view: Self, context: inout PDF.Context) {
         context.advance(view.height)

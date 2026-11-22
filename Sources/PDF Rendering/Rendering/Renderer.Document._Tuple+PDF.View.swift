@@ -5,7 +5,7 @@ public import Renderer_Document
 extension Renderer.Document._Tuple: PDF.View where repeat each Content: PDF.View {
     public typealias Content = Never
 
-    public var body: Never { fatalError("_Tuple uses direct rendering") }
+    public var body: Never { Self.unrendered }
 
     public static func _render(_ view: Self, context: inout PDF.Context) {
 

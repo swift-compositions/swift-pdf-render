@@ -25,9 +25,7 @@ extension PDF {
 extension PDF.Divider {
     public typealias Content = Never
 
-    public var body: Never {
-        fatalError("PDF.Divider is a leaf view")
-    }
+    public var body: Never { Self.unrendered }
 
     public static func _render(_ view: Self, context: inout PDF.Context) {
 

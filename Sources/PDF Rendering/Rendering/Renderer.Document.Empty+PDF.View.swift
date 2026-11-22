@@ -9,5 +9,5 @@ extension Renderer.Document.Empty: PDF.View {
 
     }
 
-    public var body: Never { fatalError("Empty uses direct rendering") }
+    public var body: Never { Self.unrendered }
 }

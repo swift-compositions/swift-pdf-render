@@ -2,9 +2,7 @@ public import PDF_Standard
 
 extension PDF.Rectangle: PDF.View {
 
-    public var body: Never {
-        fatalError("PDF.Rectangle is a leaf view")
-    }
+    public var body: Never { Self.unrendered }
 
     public static func _render(_ view: Self, context: inout PDF.Context) {
 

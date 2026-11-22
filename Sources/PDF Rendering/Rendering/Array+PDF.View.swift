@@ -3,7 +3,7 @@ public import PDF_Standard
 extension Array: PDF.View where Element: PDF.View {
     public typealias Content = Never
 
-    public var body: Never { fatalError("Array uses direct rendering") }
+    public var body: Never { Self.unrendered }
 
     public static func _render(_ view: Self, context: inout PDF.Context) {
         if context.spacing.isHorizontal {
