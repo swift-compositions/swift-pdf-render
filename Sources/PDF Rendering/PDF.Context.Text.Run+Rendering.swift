@@ -420,7 +420,7 @@ extension PDF.Context.Text.Run {
         if let internalId = run.internalLinkId {
             context.addPendingInternalLink(rect: linkRect, targetId: internalId)
         } else if let url = run.linkURL {
-            context.addLinkAnnotation(rect: linkRect, uri: RFC_3986.URI(unchecked: url))
+            context.addLinkAnnotation(rect: linkRect, uri: IETF.RFC.`3986`.URI(unchecked: url))
         }
     }
 

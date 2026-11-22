@@ -283,7 +283,7 @@ extension PDF.Context {
 
     public mutating func addLinkAnnotation(
         rect: PDF.UserSpace.Rectangle,
-        uri: RFC_3986.URI
+        uri: IETF.RFC.`3986`.URI
     ) {
         let link = PDF.Annotation.Link(uri: uri)
         let annotation = PDF.Annotation(rect: rect, content: .link(link))
