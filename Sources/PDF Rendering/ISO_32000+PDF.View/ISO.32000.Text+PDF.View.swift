@@ -2,7 +2,7 @@ import Byte
 import Layout
 import PDF_Standard
 
-extension ISO_32000.Text: PDF.View {
+extension ISO.`32000`.Text: PDF.View {
 
     public var body: Never {
         fatalError("PDF.Text is a leaf view")

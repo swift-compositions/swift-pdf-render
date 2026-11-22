@@ -503,7 +503,7 @@ extension PDF.Context.Text.Run {
 
                     utf8Buffer.append(byte)
                     lastWasSpace = false
-                } else if let scalar = ISO_32000.WinAnsiEncoding.decode(byte) {
+                } else if let scalar = ISO.`32000`.WinAnsiEncoding.decode(byte) {
 
                     for unit in scalar.utf8 {
                         utf8Buffer.append(Byte(bitPattern: unit))

@@ -2,7 +2,7 @@ import ISO_32000
 public import Layout
 public import PDF_Standard
 
-extension ISO_32000.Table {
+extension ISO.`32000`.Table {
 
     public func callAsFunction<Content: PDF.View>(
         @PDF.Builder _ content: () -> Content
@@ -13,7 +13,7 @@ extension ISO_32000.Table {
     }
 }
 
-extension ISO_32000.Table.Row {
+extension ISO.`32000`.Table.Row {
 
     public func callAsFunction<Content: PDF.View>(
         @PDF.Builder _ content: () -> Content
@@ -35,7 +35,7 @@ extension ISO_32000.Table.Row {
     }
 }
 
-extension ISO_32000.TH {
+extension ISO.`32000`.TH {
 
     public func callAsFunction<Content: PDF.View>(
         width: PDF.UserSpace.Width,
@@ -53,7 +53,7 @@ extension ISO_32000.TH {
     }
 }
 
-extension ISO_32000.TD {
+extension ISO.`32000`.TD {
 
     public func callAsFunction<Content: PDF.View>(
         width: PDF.UserSpace.Width,
@@ -71,7 +71,7 @@ extension ISO_32000.TD {
     }
 }
 
-extension ISO_32000.Table.Header {
+extension ISO.`32000`.Table.Header {
 
     public func callAsFunction<Content: PDF.View>(
         @PDF.Builder _ content: () -> Content
@@ -87,13 +87,13 @@ extension ISO_32000.Table.Header {
     ) -> some PDF.View {
         PDF.Element(tag: self) {
             PDF.Stack(spacing: 0) {
-                ISO_32000.TR()(data, content: content)
+                ISO.`32000`.TR()(data, content: content)
             }
         }
     }
 }
 
-extension ISO_32000.Table.Body {
+extension ISO.`32000`.Table.Body {
 
     public func callAsFunction<Content: PDF.View>(
         @PDF.Builder _ content: () -> Content
@@ -115,7 +115,7 @@ extension ISO_32000.Table.Body {
     }
 }
 
-extension ISO_32000.Table.Footer {
+extension ISO.`32000`.Table.Footer {
 
     public func callAsFunction<Content: PDF.View>(
         @PDF.Builder _ content: () -> Content
@@ -131,7 +131,7 @@ extension ISO_32000.Table.Footer {
     ) -> some PDF.View {
         PDF.Element(tag: self) {
             PDF.Stack(spacing: 0) {
-                ISO_32000.TR()(data, content: content)
+                ISO.`32000`.TR()(data, content: content)
             }
         }
     }

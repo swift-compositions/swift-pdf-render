@@ -27,7 +27,7 @@ extension Property where Tag == PDF.Context.Page, Base == PDF.Context {
 
         base.flush.text()
 
-        let currentStream = ISO_32000.ContentStream(
+        let currentStream = ISO.`32000`.ContentStream(
             data: base.currentPageBuilder.data,
             fontsUsed: base.currentPageBuilder.fontsUsed,
             imagesUsed: base.currentPageBuilder.imagesUsed

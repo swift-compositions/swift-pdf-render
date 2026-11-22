@@ -34,7 +34,7 @@ extension PDF {
 
         internal var row: Row = .init()
 
-        public var graphics: ISO_32000.Graphics.State.Stack<ISO_32000.GraphicsState>
+        public var graphics: ISO.`32000`.Graphics.State.Stack<ISO.`32000`.GraphicsState>
 
         public var fonts: [String: PDF.Font] = [:]
 
@@ -42,11 +42,11 @@ extension PDF {
 
         internal var scopes: [Scope] = []
 
-        public var mediaBox: ISO_32000.UserSpace.Rectangle
+        public var mediaBox: ISO.`32000`.UserSpace.Rectangle
 
         public var completedPages: [PDF.Page] = []
 
-        public var currentPageBuilder: ISO_32000.ContentStream.Builder = .init()
+        public var currentPageBuilder: ISO.`32000`.ContentStream.Builder = .init()
 
         public var currentPageAnnotations: [PDF.Annotation] = []
     }
@@ -63,14 +63,14 @@ extension PDF.Context {
 
     public init(
         layoutBox: PDF.UserSpace.Rectangle,
-        mediaBox: ISO_32000.UserSpace.Rectangle,
+        mediaBox: ISO.`32000`.UserSpace.Rectangle,
         style: Style.Resolved = .init(
             font: .helvetica,
             fontSize: 12,
             color: .black,
             lineHeight: 1.2
         ),
-        graphicsStack: ISO_32000.Graphics.State.Stack<ISO_32000.GraphicsState> = .init(
+        graphicsStack: ISO.`32000`.Graphics.State.Stack<ISO.`32000`.GraphicsState> = .init(
             initial: .init()
         )
     ) {
@@ -87,7 +87,7 @@ extension PDF.Context {
         y: PDF.UserSpace.Y = .init(0),
         availableWidth: PDF.UserSpace.Width,
         availableHeight: PDF.UserSpace.Height,
-        mediaBox: ISO_32000.UserSpace.Rectangle,
+        mediaBox: ISO.`32000`.UserSpace.Rectangle,
         font: PDF.Font = .helvetica,
         fontSize: PDF.UserSpace.Size<1> = 12,
         color: PDF.Color = .black,
@@ -112,7 +112,7 @@ extension PDF.Context {
     }
 
     public init(
-        mediaBox: ISO_32000.UserSpace.Rectangle,
+        mediaBox: ISO.`32000`.UserSpace.Rectangle,
         margins: PDF.UserSpace.Insets
     ) {
         let contentWidth = mediaBox.width - PDF.UserSpace.Width(_unchecked: margins.horizontal)
@@ -292,7 +292,7 @@ extension PDF.Context {
 
     public mutating func addLinkAnnotation(
         rect: PDF.UserSpace.Rectangle,
-        destination: ISO_32000.Destination
+        destination: ISO.`32000`.Destination
     ) {
         let link = PDF.Annotation.Link(destination: destination)
         let annotation = PDF.Annotation(rect: rect, content: .link(link))
@@ -329,7 +329,7 @@ extension PDF.Context {
                 }
                 data.append(contentsOf: [Byte](utf8: "ET"))
             }
-            let currentStream = ISO_32000.ContentStream(
+            let currentStream = ISO.`32000`.ContentStream(
                 data: data,
                 fontsUsed: currentPageBuilder.fontsUsed,
                 imagesUsed: currentPageBuilder.imagesUsed
@@ -366,7 +366,7 @@ extension PDF.Context {
             for pendingLink in pageLinks {
                 if let dest = namedDestinations[pendingLink.targetId] {
 
-                    let destination = ISO_32000.Destination.xyz(
+                    let destination = ISO.`32000`.Destination.xyz(
                         page: dest.pageNumber - 1,
                         left: nil,
                         top: dest.yPosition,

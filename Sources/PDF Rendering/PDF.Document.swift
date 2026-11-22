@@ -12,7 +12,7 @@ extension PDF.Document {
         let view = build()
         View._render(view, context: &context)
 
-        let viewer: ISO_32000.Viewer? =
+        let viewer: ISO.`32000`.Viewer? =
             configuration.viewer == .init()
             ? nil
             : configuration.viewer

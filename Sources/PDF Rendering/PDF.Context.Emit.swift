@@ -138,7 +138,7 @@ extension Property where Tag == PDF.Context.Emit, Base == PDF.Context {
     }
 
     public mutating func image(
-        _ image: ISO_32000.Image,
+        _ image: ISO.`32000`.Image,
         in rect: PDF.UserSpace.Rectangle
     ) {
         guard !base.mode.measurement else { return }

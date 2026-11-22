@@ -39,24 +39,24 @@ extension PDF.Element: PDF.View {
 
     private static func markedContentInfo(
         for tag: Tag
-    ) -> (ISO_32000.COS.Name, ISO_32000.COS.Dictionary?) {
+    ) -> (ISO.`32000`.COS.Name, ISO.`32000`.COS.Dictionary?) {
 
-        if Tag.self == ISO_32000.Table.self {
-            let table = unsafe unsafeBitCast(tag, to: ISO_32000.Table.self)
-            var props: ISO_32000.COS.Dictionary? = nil
+        if Tag.self == ISO.`32000`.Table.self {
+            let table = unsafe unsafeBitCast(tag, to: ISO.`32000`.Table.self)
+            var props: ISO.`32000`.COS.Dictionary? = nil
             if let summary = table.summary {
-                props = [.summary: .string(ISO_32000.COS.StringValue(summary))]
+                props = [.summary: .string(ISO.`32000`.COS.StringValue(summary))]
             }
             return (.table, props)
         }
 
-        if Tag.self == ISO_32000.TR.self {
+        if Tag.self == ISO.`32000`.TR.self {
             return (.tr, nil)
         }
 
-        if Tag.self == ISO_32000.TH.self {
-            let th = unsafe unsafeBitCast(tag, to: ISO_32000.TH.self)
-            var props: ISO_32000.COS.Dictionary = [:]
+        if Tag.self == ISO.`32000`.TH.self {
+            let th = unsafe unsafeBitCast(tag, to: ISO.`32000`.TH.self)
+            var props: ISO.`32000`.COS.Dictionary = [:]
             if th.row.span != 1 {
                 props[.rowSpan] = .integer(Int64(th.row.span))
             }
@@ -64,20 +64,20 @@ extension PDF.Element: PDF.View {
                 props[.colSpan] = .integer(Int64(th.col.span))
             }
             if !th.headers.isEmpty {
-                props[.headers] = .array(th.headers.map { .string(ISO_32000.COS.StringValue($0)) })
+                props[.headers] = .array(th.headers.map { .string(ISO.`32000`.COS.StringValue($0)) })
             }
             if let scope = th.scope {
                 props[.scope] = .name(scope.name)
             }
             if let short = th.short {
-                props[.short] = .string(ISO_32000.COS.StringValue(short))
+                props[.short] = .string(ISO.`32000`.COS.StringValue(short))
             }
             return (.th, props.isEmpty ? nil : props)
         }
 
-        if Tag.self == ISO_32000.TD.self {
-            let td = unsafe unsafeBitCast(tag, to: ISO_32000.TD.self)
-            var props: ISO_32000.COS.Dictionary = [:]
+        if Tag.self == ISO.`32000`.TD.self {
+            let td = unsafe unsafeBitCast(tag, to: ISO.`32000`.TD.self)
+            var props: ISO.`32000`.COS.Dictionary = [:]
             if td.row.span != 1 {
                 props[.rowSpan] = .integer(Int64(td.row.span))
             }
@@ -85,25 +85,25 @@ extension PDF.Element: PDF.View {
                 props[.colSpan] = .integer(Int64(td.col.span))
             }
             if !td.headers.isEmpty {
-                props[.headers] = .array(td.headers.map { .string(ISO_32000.COS.StringValue($0)) })
+                props[.headers] = .array(td.headers.map { .string(ISO.`32000`.COS.StringValue($0)) })
             }
             return (.td, props.isEmpty ? nil : props)
         }
 
-        if Tag.self == ISO_32000.THead.self {
+        if Tag.self == ISO.`32000`.THead.self {
             return (.thead, nil)
         }
 
-        if Tag.self == ISO_32000.TBody.self {
+        if Tag.self == ISO.`32000`.TBody.self {
             return (.tbody, nil)
         }
 
-        if Tag.self == ISO_32000.TFoot.self {
+        if Tag.self == ISO.`32000`.TFoot.self {
             return (.tfoot, nil)
         }
 
-        do throws(ISO_32000.COS.Name.Error) {
-            return (try ISO_32000.COS.Name(String(describing: Tag.self)), nil)
+        do throws(ISO.`32000`.COS.Name.Error) {
+            return (try ISO.`32000`.COS.Name(String(describing: Tag.self)), nil)
         } catch {
             return (.span, nil)
         }
